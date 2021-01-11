@@ -1,11 +1,14 @@
 import React, {useState} from 'react'
+import {useHistory} from 'react-router-dom'
 
 export default function LoginPage() {
 
     const [formData, setFormData] = useState({
     email: "webb19@willandskill.se",
     password: "javascriptoramverk"
-  })
+    })
+
+    const history = useHistory()    
 
     function handleOnSubmit(e) {
     e.preventDefault()
@@ -24,14 +27,14 @@ export default function LoginPage() {
     .then(res => res.json())
     .then(data => {
       localStorage.setItem("WEBB20", data.token)
-    })
+      history.push("/customer-list")
+    })    
   }
 
   function handleOnChange(e) {
     const inputName = e.target.name;
     const inputValue = e.target.value;
-    setFormData({...formData, [inputName]: inputValue})
-    
+    setFormData({...formData, [inputName]: inputValue})    
   }
 
     return (
