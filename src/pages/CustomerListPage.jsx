@@ -1,8 +1,12 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 
 export default function CustomerListPage() {
 
     const [customerList, setCustomerList] = useState([]) 
+
+    useEffect(() => {
+        return getCustomerList()
+    }, [])
 
     function getCustomerList() {
     const url = "https://frebi.willandskill.eu/api/v1/customers/"
@@ -19,8 +23,7 @@ export default function CustomerListPage() {
   }
 
     return (
-        <div>
-            <button onClick={getCustomerList}>Get Customers</button>
+        <div>            
             {customerList.map(item => {
                 return <p key={item.id}>{item.name}</p>
             })}
