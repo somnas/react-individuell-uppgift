@@ -31,6 +31,22 @@ function App() {
       }
     })
     .then(res => res.json())
+    .then(data => {
+      localStorage.setItem("WEBB20", data.token)
+    })
+  }
+
+  function getMe() {
+    const url = "https://frebi.willandskill.eu/api/v1/me/"
+    const token = localStorage.getItem("WEBB20")
+    fetch(url, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": `Bearer ${token}`
+      }
+    })
+    .then(res => res.json())
     .then(data => console.log(data))
   }
   
@@ -44,6 +60,8 @@ function App() {
         <input name="password" value={formData.password} onChange={handleOnChange}/>
         <button type="submit">Login</button>
       </form>
+      <hr/>
+      <button onClick={getMe}>Get Me</button>
     </div>
   );
 }
