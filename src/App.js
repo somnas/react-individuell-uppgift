@@ -1,6 +1,7 @@
 import React from 'react'
 import {Switch, Route} from 'react-router-dom'
 import './App.css';
+import CustomerDetailPage from './pages/CustomerDetailPage';
 import CustomerListPage from './pages/CustomerListPage';
 import HomePage from './pages/HomePage';
 import LoginPage from './pages/LoginPage';
@@ -34,6 +35,7 @@ function App() {
         <Route path="/customer-list">
           <CustomerListPage />
         </Route>
+        <Route path="/customers/:id" component={CustomerDetailPage} />                 
         <Route path="/">
           <HomePage />
         </Route>

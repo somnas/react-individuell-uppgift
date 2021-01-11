@@ -8,8 +8,7 @@ export default function CustomerListItem({customerData}) {
                 <Link to={`/customers/${customerData.id}`}>
                     {customerData.name}
                 </Link>
-            </h2>
-            
+            </h2>            
         </div>
     )
 }
