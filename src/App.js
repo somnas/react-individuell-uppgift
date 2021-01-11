@@ -49,6 +49,20 @@ function App() {
     .then(res => res.json())
     .then(data => console.log(data))
   }
+
+  function getCustomerList() {
+    const url = "https://frebi.willandskill.eu/api/v1/customers/"
+    const token = localStorage.getItem("WEBB20")
+    fetch(url, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": `Bearer ${token}`
+      }
+    })
+    .then(res => res.json())
+    .then(data => console.log(data))
+  }
   
   return (
     <div className="App">
@@ -62,6 +76,7 @@ function App() {
       </form>
       <hr/>
       <button onClick={getMe}>Get Me</button>
+      <button onClick={getCustomerList}>Get Customers</button>
     </div>
   );
 }
