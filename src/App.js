@@ -3,6 +3,7 @@ import './App.css';
 
 function App() {
 
+  const [customerList, setCustomerList] = useState([])
   
   const [formData, setFormData] = useState({
     email: "webb19@willandskill.se",
@@ -61,7 +62,7 @@ function App() {
       }
     })
     .then(res => res.json())
-    .then(data => console.log(data))
+    .then(data => setCustomerList(data.results))
   }
   
   return (
@@ -77,6 +78,9 @@ function App() {
       <hr/>
       <button onClick={getMe}>Get Me</button>
       <button onClick={getCustomerList}>Get Customers</button>
+      {customerList.map((item, index) => {
+        return <p key={index}>{item.name}</p>
+      })}
     </div>
   );
 }
