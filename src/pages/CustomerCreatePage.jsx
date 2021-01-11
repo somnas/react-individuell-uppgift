@@ -21,7 +21,19 @@ export default function CustomerCreatePage() {
 
     function handleOnSubmit(e) {
         e.preventDefault()
+        const url = "https://frebi.willandskill.eu/api/v1/customers/"
+        const token = localStorage.getItem("WEBB20")
+
+        fetch(url, {
+            method: "POST",
+            body: JSON.stringify(formData),
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": `Bearer ${token}`
+            }
+        })
     }
+
     return (
         <div>
             <h1>Create Customer</h1>
