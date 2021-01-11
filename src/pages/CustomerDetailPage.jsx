@@ -3,7 +3,7 @@ import React, {useState, useEffect} from 'react'
 export default function CustomerDetailPage(props) {
 
     const customerId = props.match.params.id
-    const [customerItem, setCustomerItem] = useState({})
+    const [customerItem, setCustomerItem] = useState(null)
 
     useEffect(() => {
         return getCustomerItem()
@@ -20,12 +20,20 @@ export default function CustomerDetailPage(props) {
             }
             })
             .then(res => res.json())
-            .then(data => setCustomerItem(data.results))
+            .then(data => setCustomerItem(data))
             }
     
     return (
-        <div>
-            <h1>Customer Detail Page</h1>
+        <div>            
+            {customerItem
+            ? (
+                <p>Data inladdat</p>
+            )
+            :
+            (
+                <p>Laddar data</p>
+            )
+            }
         </div>
     )
 }
