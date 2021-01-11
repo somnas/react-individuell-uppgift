@@ -5,12 +5,14 @@ function App() {
 
   
   const [formData, setFormData] = useState({
-    email: "",
-    password: ""
+    email: "webb19@willandskill.se",
+    password: "javascriptoramverk"
   })
 
   function handleOnChange(e) {
-    setFormData({...formData, [e.target.name]: e.target.value})
+    const inputName = e.target.name;
+    const inputValue = e.target.value;
+    setFormData({...formData, [inputName]: inputValue})
     
   }
   
@@ -19,9 +21,9 @@ function App() {
       <h1>LOGIN</h1>      
       <form>
         <label>Email</label>
-        <input name="email" onChange={handleOnChange}/>
+        <input name="email" value={formData.email} onChange={handleOnChange}/>
         <label>Password</label>
-        <input name="password" onChange={handleOnChange}/>
+        <input name="password" value={formData.password} onChange={handleOnChange}/>
         <button type="submit">Login</button>
       </form>
     </div>
