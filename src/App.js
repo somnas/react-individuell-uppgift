@@ -15,11 +15,29 @@ function App() {
     setFormData({...formData, [inputName]: inputValue})
     
   }
+
+  function handleOnSubmit(e) {
+    e.preventDefault()
+    const url = "https://frebi.willandskill.eu/api-token-auth/"
+    const payload = {
+      email: formData.email,
+      password: formData.password
+    }
+    fetch(url, {
+      method: "POST",
+      body: JSON.stringify(payload),
+      headers: {
+        "Content-Type": "application/json"
+      }
+    })
+    .then(res => res.json())
+    .then(data => console.log(data))
+  }
   
   return (
     <div className="App">
       <h1>LOGIN</h1>      
-      <form>
+      <form onSubmit={handleOnSubmit}>
         <label>Email</label>
         <input name="email" value={formData.email} onChange={handleOnChange}/>
         <label>Password</label>
