@@ -1,12 +1,13 @@
 import React, {useState, useEffect} from 'react'
 
+
 export default function CustomerDetailPage(props) {
 
     const customerId = props.match.params.id
     const [customerItem, setCustomerItem] = useState(null)
 
     useEffect(() => {
-        return getCustomerItem()
+        getCustomerItem()
     }, [])
     
     function getCustomerItem() {
@@ -27,7 +28,21 @@ export default function CustomerDetailPage(props) {
         <div>            
             {customerItem
             ? (
-                <p>Data inladdat</p>
+                <div>
+                    <h1>{customerItem.name}</h1>
+                    <table>
+                        <tr>
+                            <td>Email</td>
+                            <td>{customerItem.email}</td>
+                        </tr>
+                        <tr>
+                            <td>Website</td>
+                            <td>{customerItem.website}</td>
+                        </tr>
+                    </table>
+                    <p></p>
+                    <p></p>
+                </div>                
             )
             :
             (
