@@ -1,6 +1,7 @@
 import React from 'react'
 import {Switch, Route} from 'react-router-dom'
 import './App.css';
+import CustomerCreatePage from './pages/CustomerCreatePage';
 import CustomerDetailPage from './pages/CustomerDetailPage';
 import CustomerListPage from './pages/CustomerListPage';
 import HomePage from './pages/HomePage';
@@ -31,19 +32,20 @@ function App() {
       <Switch>
         <Route path="/login">
           <LoginPage />
-        </Route>
-        <Route path="/customer-list">
-          <CustomerListPage />
-        </Route>
+        </Route>   
+        <Route path="/customers/create">
+          <CustomerCreatePage />  
+        </Route>       
         <Route path="/customers/:id" component={CustomerDetailPage} />                 
+        <Route path="/customers">
+          <CustomerListPage />
+        </Route>      
         <Route path="/">
           <HomePage />
         </Route>
       </Switch> 
       
-      <hr/>
-      <button onClick={getMe}>Get Me</button>
-      
+      <hr/>     
     </div>
   );
 }
