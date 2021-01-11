@@ -68,14 +68,18 @@ function App() {
   
   return (
     <div className="App">
-      <h1>LOGIN</h1>      
-      <form onSubmit={handleOnSubmit}>
-        <label>Email</label>
-        <input name="email" value={formData.email} onChange={handleOnChange}/>
-        <label>Password</label>
-        <input name="password" value={formData.password} onChange={handleOnChange}/>
-        <button type="submit">Login</button>
-      </form>
+      <Switch>
+        <Route path="/login">
+        <form onSubmit={handleOnSubmit}>
+          <label>Email</label>
+          <input name="email" value={formData.email} onChange={handleOnChange}/>
+          <label>Password</label>
+          <input name="password" value={formData.password} onChange={handleOnChange}/>
+          <button type="submit">Login</button>
+        </form>
+        </Route>  
+      </Switch> 
+      
       <hr/>
       <button onClick={getMe}>Get Me</button>
       <button onClick={getCustomerList}>Get Customers</button>
