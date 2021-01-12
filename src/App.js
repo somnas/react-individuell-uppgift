@@ -4,6 +4,7 @@ import './App.css';
 import CustomerCreatePage from './pages/CustomerCreatePage';
 import CustomerDetailPage from './pages/CustomerDetailPage';
 import CustomerListPage from './pages/CustomerListPage';
+import CustomerUpdatePage from './pages/CustomerUpdatePage';
 import HomePage from './pages/HomePage';
 import LoginPage from './pages/LoginPage';
 
@@ -43,7 +44,8 @@ function App() {
         </Route>   
         <Route path="/customers/create">
           <CustomerCreatePage />  
-        </Route>       
+        </Route>
+        <Route path="/customers/:id/edit" component={CustomerUpdatePage} />
         <Route path="/customers/:id" component={CustomerDetailPage} />                 
         <Route path="/customers">
           <CustomerListPage />
