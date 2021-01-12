@@ -1,10 +1,12 @@
 import React, {useState, useEffect} from 'react'
+import {useHistory} from 'react-router-dom'
 
 
 export default function CustomerDetailPage(props) {
 
     const customerId = props.match.params.id
     const [customerItem, setCustomerItem] = useState(null)
+    const history = useHistory()
 
     useEffect(() => {
         getCustomerItem()
@@ -33,8 +35,9 @@ export default function CustomerDetailPage(props) {
                 "Content-Type": "application/json",
                 "Authorization": `Bearer ${token}`
             }
-            })
-        }
+        })
+        .then(() => history.push("/customers"))
+    }
     
     return (
         <div>            
