@@ -41,8 +41,18 @@ export default function CustomerUpdatePage(props) {
         )
     }
 
-    function handleOnSubmit() {
-                
+    function handleOnSubmit(e) {
+        e.preventDefault()
+        const url = `https://frebi.willandskill.eu/api/v1/customers/${customerId}/`
+        const token = localStorage.getItem("WEBB20")
+        fetch(url, {
+            method: "PUT",
+            body: JSON.stringify(formData),
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": `Bearer ${token}`
+            }
+        })
     }
 
     return (

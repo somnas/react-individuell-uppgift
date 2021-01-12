@@ -14,7 +14,7 @@ export default function CustomerCreatePage() {
                 type={type || "text"}
                 name={name}
                 onChange={e => {
-                    setFormData({...formData, [e.target]: e.target.value}) 
+                    setFormData({...formData, [e.target.name]: e.target.value}) 
                 }}
                 />
             </div>
