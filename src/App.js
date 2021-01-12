@@ -1,5 +1,5 @@
 import React from 'react'
-import {Switch, Route} from 'react-router-dom'
+import {Switch, Route, Link} from 'react-router-dom'
 import './App.css';
 import CustomerCreatePage from './pages/CustomerCreatePage';
 import CustomerDetailPage from './pages/CustomerDetailPage';
@@ -29,6 +29,14 @@ function App() {
   
   return (
     <div className="App">
+      <ul>
+        <li>
+          <Link to="/customers">Customers</Link>
+        </li>
+        <li>
+          <Link to="/customers/create">Create Customer</Link>
+        </li>
+      </ul>
       <Switch>
         <Route path="/login">
           <LoginPage />
