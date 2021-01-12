@@ -34,7 +34,7 @@ export default function CustomerUpdatePage(props) {
                 name={name}
                 value={formData[name]}
                 onChange={e => {
-                    setFormData({...formData, [e.target]: e.target.value}) 
+                    setFormData({...formData, [e.target.name]: e.target.value}) 
                 }}
                 />
             </div>
@@ -53,6 +53,8 @@ export default function CustomerUpdatePage(props) {
                 "Authorization": `Bearer ${token}`
             }
         })
+        .then(res => res.json)
+        .then(data => history.push(`customers/${customerId}`))
     }
 
     return (
