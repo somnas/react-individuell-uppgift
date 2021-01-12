@@ -15,7 +15,7 @@ export default function CustomerUpdatePage(props) {
         const url = `https://frebi.willandskill.eu/api/v1/customers/${customerId}/`
         const token = localStorage.getItem("WEBB20")
         fetch(url, {
-            method: "PUT",
+            method: "GET",
             headers: {
                 "Content-Type": "application/json",
                 "Authorization": `Bearer ${token}`
