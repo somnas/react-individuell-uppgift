@@ -1,8 +1,10 @@
 import React, {useState} from 'react'
+import {useHistory} from 'react-router-dom'
 
 export default function CustomerCreatePage() {
 
     const [formData, setFormData] = useState({})
+    const history = useHistory()
 
     function renderInput(name, label, type) {
         return(
@@ -31,6 +33,10 @@ export default function CustomerCreatePage() {
                 "Content-Type": "application/json",
                 "Authorization": `Bearer ${token}`
             }
+        })
+        .then(res => res.json())
+        .then(data => {
+            history.push("/customers")
         })
     }
 

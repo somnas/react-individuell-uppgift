@@ -22,7 +22,19 @@ export default function CustomerDetailPage(props) {
             })
             .then(res => res.json())
             .then(data => setCustomerItem(data))
+        }
+
+    function deleteCustomer() {
+        const url = `https://frebi.willandskill.eu/api/v1/customers/${customerId}/`
+        const token = localStorage.getItem("WEBB20")
+        fetch(url, {
+            method: "DELETE",
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": `Bearer ${token}`
             }
+            })
+        }
     
     return (
         <div>            
@@ -40,8 +52,7 @@ export default function CustomerDetailPage(props) {
                             <td>{customerItem.website}</td>
                         </tr>
                     </table>
-                    <p></p>
-                    <p></p>
+                    <button onClick={deleteCustomer}>Delete Customer</button>
                 </div>                
             )
             :
