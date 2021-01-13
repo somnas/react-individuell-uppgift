@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react'
-import {useHistory} from 'react-router-dom'
+import {useHistory, Link} from 'react-router-dom'
 
 
 export default function CustomerDetailPage(props) {
@@ -55,6 +55,7 @@ export default function CustomerDetailPage(props) {
                             <td>{customerItem.website}</td>
                         </tr>
                     </table>
+                    <Link to={`/customers/${customerId}/edit`}><button>Edit Customer</button></Link>
                     <button onClick={deleteCustomer}>Delete Customer</button>
                 </div>                
             )
@@ -62,7 +63,7 @@ export default function CustomerDetailPage(props) {
             (
                 <p>Laddar data</p>
             )
-            }
+            }            
         </div>
     )
 }
