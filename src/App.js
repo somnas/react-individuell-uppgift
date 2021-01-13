@@ -8,11 +8,6 @@ import HomePage from './pages/HomePage';
 import LoginPage from './pages/LoginPage';
 import styled from 'styled-components';
 
-const Heading = styled.h1`
-  font-size: 5rem;
-  color: #999;
-`
-
 const Ul = styled.ul`
   list-style-type: none;
 `

@@ -2,6 +2,10 @@ import React, {useState} from 'react'
 import {useHistory} from 'react-router-dom'
 import styled from 'styled-components'
 
+const Heading = styled.h1`
+    text-align: center;
+`
+
 const Form = styled.form`
      margin: auto;
      max-width: 650px;
@@ -62,7 +66,7 @@ export default function CustomerCreatePage() {
 
     return (
         <div>
-            <h1>Create Customer</h1>
+            <Heading>Create Customer</Heading>
             <Form onSubmit={handleOnSubmit}>
                 {renderInput("name", "Customer Name")}
                 {renderInput("email", "Customer Email", "email")}
