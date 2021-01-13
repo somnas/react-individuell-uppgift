@@ -1,6 +1,5 @@
 import React from 'react'
 import {Switch, Route, Link} from 'react-router-dom'
-import './App.css';
 import CustomerCreatePage from './pages/CustomerCreatePage';
 import CustomerDetailPage from './pages/CustomerDetailPage';
 import CustomerListPage from './pages/CustomerListPage';
@@ -42,7 +41,6 @@ function App() {
         <Ul>
           <Link to="/customers/create">Create Customer</Link>
         </Ul>      
-      <Heading>Styled Heading</Heading>
       <Switch>
         <Route path="/login">
           <LoginPage />
@@ -59,7 +57,7 @@ function App() {
           <HomePage />
         </Route>
       </Switch>      
-      <hr/>     
+           
     </div>
   );
 }

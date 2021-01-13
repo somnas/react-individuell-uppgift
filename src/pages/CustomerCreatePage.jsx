@@ -1,5 +1,24 @@
 import React, {useState} from 'react'
 import {useHistory} from 'react-router-dom'
+import styled from 'styled-components'
+
+const Form = styled.form`
+     margin: auto;
+     max-width: 650px;
+     text-align: center;
+`
+
+const StyledLabel = styled.label`
+    display: block;
+    margin: auto;
+    
+`
+
+const StyledInput = styled.input`
+    display: block;
+    margin: auto;
+    
+`
 
 export default function CustomerCreatePage() {
 
@@ -9,14 +28,15 @@ export default function CustomerCreatePage() {
     function renderInput(name, label, type) {
         return(
             <div>
-                <label>{label}</label>
-                <input
+                <StyledLabel>{label}</StyledLabel>
+                <StyledInput
                 type={type || "text"}
                 name={name}
                 onChange={e => {
                     setFormData({...formData, [e.target.name]: e.target.value}) 
                 }}
                 />
+                <br/>
             </div>
         )
     }
@@ -43,7 +63,7 @@ export default function CustomerCreatePage() {
     return (
         <div>
             <h1>Create Customer</h1>
-            <form onSubmit={handleOnSubmit}>
+            <Form onSubmit={handleOnSubmit}>
                 {renderInput("name", "Customer Name")}
                 {renderInput("email", "Customer Email", "email")}
                 {renderInput("organisationNr", "Organisation Number")}
@@ -52,8 +72,9 @@ export default function CustomerCreatePage() {
                 {renderInput("reference", "Reference")}
                 {renderInput("vatNr", "Vat Number")}
                 {renderInput("website", "Website", "url")}
+                <br/>
                 <button type="submit">Create Customer</button>
-            </form>
+            </Form>
         </div>
     )
 }
