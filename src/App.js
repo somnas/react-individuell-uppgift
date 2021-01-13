@@ -7,10 +7,18 @@ import CustomerListPage from './pages/CustomerListPage';
 import CustomerUpdatePage from './pages/CustomerUpdatePage';
 import HomePage from './pages/HomePage';
 import LoginPage from './pages/LoginPage';
+import styled from 'styled-components';
 
-function App() {
+const Heading = styled.h1`
+  font-size: 5rem;
+  color: #999;
+`
 
-  
+const Ul = styled.ul`
+  list-style-type: none;
+`
+
+function App() {  
 
   function getMe() {
     const url = "https://frebi.willandskill.eu/api/v1/me/"
@@ -24,20 +32,17 @@ function App() {
     })
     .then(res => res.json())
     .then(data => console.log(data))
-  }
-
-  
+  }  
   
   return (
-    <div className="App">
-      <ul>
-        <li>
+    <div className="App">      
+        <Ul>
           <Link to="/customers">Customers</Link>
-        </li>
-        <li>
+        </Ul>
+        <Ul>
           <Link to="/customers/create">Create Customer</Link>
-        </li>
-      </ul>
+        </Ul>      
+      <Heading>Styled Heading</Heading>
       <Switch>
         <Route path="/login">
           <LoginPage />
@@ -53,8 +58,7 @@ function App() {
         <Route path="/">
           <HomePage />
         </Route>
-      </Switch> 
-      
+      </Switch>      
       <hr/>     
     </div>
   );
