@@ -55,6 +55,7 @@ export default function CustomerDetailPage(props) {
                             <td>{customerItem.website}</td>
                         </tr>
                     </table>
+                    <Link to={`/customers/${customerId}/edit`}><button>Edit Customer</button></Link>
                     <button onClick={deleteCustomer}>Delete Customer</button>
                     <Link to={`/customers/${customerId}/edit`}>Edit Customer</Link>
                 </div>                
@@ -63,7 +64,7 @@ export default function CustomerDetailPage(props) {
             (
                 <p>Laddar data</p>
             )
-            }
+            }            
         </div>
     )
 }

@@ -1,16 +1,18 @@
 import React from 'react'
 import {Switch, Route, Link} from 'react-router-dom'
-import './App.css';
 import CustomerCreatePage from './pages/CustomerCreatePage';
 import CustomerDetailPage from './pages/CustomerDetailPage';
 import CustomerListPage from './pages/CustomerListPage';
 import CustomerUpdatePage from './pages/CustomerUpdatePage';
 import HomePage from './pages/HomePage';
 import LoginPage from './pages/LoginPage';
+import styled from 'styled-components';
 
-function App() {
+const Ul = styled.ul`
+  list-style-type: none;
+`
 
-  
+function App() {  
 
   function getMe() {
     const url = "https://frebi.willandskill.eu/api/v1/me/"
@@ -24,20 +26,16 @@ function App() {
     })
     .then(res => res.json())
     .then(data => console.log(data))
-  }
-
-  
+  }  
   
   return (
-    <div className="App">
-      <ul>
-        <li>
+    <div className="App">      
+        <Ul>
           <Link to="/customers">Customers</Link>
-        </li>
-        <li>
+        </Ul>
+        <Ul>
           <Link to="/customers/create">Create Customer</Link>
-        </li>
-      </ul>
+        </Ul>      
       <Switch>
         <Route path="/login">
           <LoginPage />
@@ -53,9 +51,8 @@ function App() {
         <Route path="/">
           <HomePage />
         </Route>
-      </Switch> 
-      
-      <hr/>     
+      </Switch>      
+           
     </div>
   );
 }
