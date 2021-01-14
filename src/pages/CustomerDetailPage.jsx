@@ -46,14 +46,36 @@ export default function CustomerDetailPage(props) {
                 <div>
                     <h1>{customerItem.name}</h1>
                     <table>
-                        <tr>
-                            <td>Email</td>
-                            <td>{customerItem.email}</td>
-                        </tr>
-                        <tr>
-                            <td>Website</td>
-                            <td>{customerItem.website}</td>
-                        </tr>
+                        <tbody>
+                            <tr>
+                                <td>Email</td>
+                                <td>{customerItem.email}</td>
+                            </tr>
+                            <tr>
+                                <td>Phone number</td>
+                                <td>{customerItem.phoneNumber}</td>
+                            </tr>
+                            <tr>
+                                <td>Website</td>
+                                <td>{customerItem.website}</td>
+                            </tr>
+                            <tr>
+                                <td>Company number</td>
+                                <td>{customerItem.organisationNr}</td>
+                            </tr>
+                            <tr>
+                                <td>VAT number</td>
+                                <td>{customerItem.vatNr}</td>
+                            </tr>
+                            <tr>
+                                <td>Payment term</td>
+                                <td>{customerItem.paymentTerm}</td>
+                            </tr>
+                            <tr>
+                                <td>Reference</td>
+                                <td>{customerItem.reference}</td>
+                            </tr>
+                        </tbody>
                     </table>
                     <Link to={`/customers/${customerId}/edit`}><button>Edit Customer</button></Link>
                     <button onClick={deleteCustomer}>Delete Customer</button>
