@@ -46,14 +46,16 @@ export default function CustomerDetailPage(props) {
                 <div>
                     <h1>{customerItem.name}</h1>
                     <table>
-                        <tr>
-                            <td>Email</td>
-                            <td>{customerItem.email}</td>
-                        </tr>
-                        <tr>
-                            <td>Website</td>
-                            <td>{customerItem.website}</td>
-                        </tr>
+                        <tbody>
+                            <tr>
+                                <td>Email</td>
+                                <td>{customerItem.email}</td>
+                            </tr>
+                            <tr>
+                                <td>Website</td>
+                                <td>{customerItem.website}</td>
+                            </tr>
+                        </tbody>
                     </table>
                     <Link to={`/customers/${customerId}/edit`}><button>Edit Customer</button></Link>
                     <button onClick={deleteCustomer}>Delete Customer</button>
