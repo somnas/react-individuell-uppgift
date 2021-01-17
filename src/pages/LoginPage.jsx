@@ -4,8 +4,8 @@ import {useHistory} from 'react-router-dom'
 export default function LoginPage() {
 
     const [formData, setFormData] = useState({
-    email: "Erik.Somnas@yh.nackademin.se",
-    password: "javascriptoramverk"
+    email: "",
+    password: ""
     })
 
     const history = useHistory()    

@@ -16,8 +16,7 @@ const Ul = styled.ul`
 function App() {    
   
   return (
-    <div>
-        
+    <div>        
         <Ul>
           <Link to="/customers">Customers</Link>
         </Ul>
@@ -39,8 +38,7 @@ function App() {
         <Route path="/">
           <HomePage />
         </Route>
-      </Switch>      
-      
+      </Switch>     
     </div>
   );
 }
