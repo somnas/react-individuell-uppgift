@@ -7,17 +7,17 @@ import CustomerUpdatePage from './pages/CustomerUpdatePage';
 import HomePage from './pages/HomePage';
 import LoginPage from './pages/LoginPage';
 import styled from 'styled-components';
+import { CustomerContext } from './contexts/CustomerContext';
 
 const Ul = styled.ul`
   list-style-type: none;
 `
 
-function App() {  
-
-    
+function App() {    
   
   return (
-    <div className="App">      
+    <div>
+      <CustomerContext.Provider>   
         <Ul>
           <Link to="/customers">Customers</Link>
         </Ul>
@@ -40,7 +40,7 @@ function App() {
           <HomePage />
         </Route>
       </Switch>      
-           
+      </CustomerContext.Provider>
     </div>
   );
 }
